@@ -14,4 +14,4 @@ A simple offline notes app built with HTML, CSS, and JavaScript. Notes are saved
 
 ## Demo
 After enabling GitHub Pages, view it at:
-**https://Preetham041199.github.io/vanilla-notes-app/**
+**https://Preetham041199.github.io/vanilla-notes-app/index.html**
