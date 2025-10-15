@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Notes</title>
+  <style>
+  :root {
+    --bg: #0f172a; 
+    --panel: #111827;
+    --muted: #94a3b8;
+    --text: #e5e7eb;
+    --accent: #22c55e;
+    --accent-2: #3b82f6;
+    --danger: #ef4444;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    --radius: 16px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--panel);
+    box-shadow: var(--shadow);
+  }
+
+  h1 {
+    margin: 0.5rem 0;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    background-color: var(--accent-2);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background-color: var(--accent);
+  }
+
+  #search {
+    padding: 0.5rem;
+    border-radius: var(--radius);
+    border: none;
+    width: 60%;
+    max-width: 400px;
+  }
+
+  main {
+    flex: 1;
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .note {
+    background-color: var(--panel);
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .note h2 {
+    margin: 0 0 0.5rem;
+  }
+
+  .note textarea {
+    flex: 1;
+    width: 100%;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--muted);
+    border-radius: var(--radius);
+    padding: 0.5rem;
+    resize: none;
+  }
+
+  .note-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  .delete-btn {
+    background-color: var(--danger);
+  }
+
+  footer {
+    text-align: center;
+    padding: 0.5rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Notes</h1>
+    <div class="actions">
+      <button id="new-note">+ New</button>
+      <button id="export-notes">Export</button>
+      <input type="file" id="import-notes" accept=".json" hidden />
+      <button id="import-btn">Import</button>
+    </div>
+    <input type="search" id="search" placeholder="Search notes..." />
+  </header>
+
+  <main id="notes"></main>
+
+  <footer>
+    <p>📝 Built with HTML, CSS & JS – works offline via LocalStorage</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
